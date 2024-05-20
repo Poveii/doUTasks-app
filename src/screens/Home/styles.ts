@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#1E6F9F",
     borderRadius: 6,
   },
-  tasksContainer: {
+  tasksParent: {
     flex: 1,
     width: "100%",
     backgroundColor: "#1A1A1A",
@@ -47,7 +47,8 @@ export const styles = StyleSheet.create({
   infoContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 64,
+    marginTop: 32,
+    marginBottom: 20,
   },
   infoBox: {
     flexDirection: "row",
@@ -67,11 +68,13 @@ export const styles = StyleSheet.create({
     color: "#D9D9D9",
     borderRadius: 9999,
   },
-  tasksList: {
+  tasksContainer: {
+    marginTop: 20,
+  },
+  emptyTasksContainer: {
     alignItems: "center",
     gap: 16,
     paddingVertical: 48,
-    marginTop: 20,
     borderTopWidth: 1,
     borderColor: "#333333",
   },
@@ -79,5 +82,28 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     color: "#808080",
+  },
+  tasksList: {
+    gap: 8,
+  },
+  taskItem: {
+    width: "100%",
+    maxHeight: 64,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    backgroundColor: "#262626",
+    padding: 12,
+    paddingRight: 8,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: "#333333",
+    borderRadius: 8,
+  },
+  taskText: {
+    flex: 1,
+    fontSize: 14,
+    lineHeight: 20,
+    color: "#F2F2F2",
   },
 })
