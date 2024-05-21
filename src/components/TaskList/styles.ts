@@ -71,4 +71,8 @@ export const styles = StyleSheet.create({
     lineHeight: 20,
     color: "#F2F2F2",
   },
+  completedTaskText: {
+    textDecorationLine: "line-through",
+    color: "#808080",
+  },
 })

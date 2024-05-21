@@ -65,7 +65,12 @@ export function TaskList({
                     />
                   )}
                 </TouchableOpacity>
-                <Text style={styles.taskText}>{item.text}</Text>
+                <Text style={[
+                  styles.taskText,
+                  item.isCompleted && styles.completedTaskText
+                ]}>
+                  {item.text}
+                </Text>
                 <TouchableOpacity
                   onPress={() => onRemoveTask(index)}
                 >
