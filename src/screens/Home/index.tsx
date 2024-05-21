@@ -1,8 +1,6 @@
 import {
   Alert,
-  FlatList,
   Keyboard,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
@@ -11,33 +9,22 @@ import { useState } from "react";
 import Icon from "@expo/vector-icons/Feather";
 
 import { Logo } from "../../components/Logo";
+import { TaskList } from "../../components/TaskList";
 
 import { styles } from "./styles";
 
-interface taskModel {
+export interface TaskModel {
   text: string
   isCompleted: boolean
 }
 
 export function Home() {
-  const [tasks, setTasks] = useState<taskModel[]>([
-    {
-      text: "Teste",
-      isCompleted: false,
-    },
-    {
-      text: "Mais um teste",
-      isCompleted: false,
-    },
-    {
-      text: "Me complete",
-      isCompleted: false,
-    },
-  ])
+  const [tasks, setTasks] = useState<TaskModel[]>([])
+
   const [focusInput, setFocusInput] = useState(false)
   const [textInput, setTextInput] = useState("")
 
-  function addTask(taskText: string) {
+  function handleAddTask(taskText: string) {
     const task = {
       text: taskText,
       isCompleted: false,
@@ -48,10 +35,12 @@ export function Home() {
     Keyboard.dismiss()
   }
 
-  function removeTask(taskId: number) {
+  function handleRemoveTask(taskId: number) {
+    const selectedTask = tasks.filter((_, index) => index !== taskId)[0]
+
     Alert.alert(
       "Excluir tarefa",
-      "Deseja deletar a tarefa?",
+      `Deseja deletar a tarefa "${selectedTask.text}"?`,
       [
         {
           text: "Não",
@@ -64,14 +53,14 @@ export function Home() {
                 return index !== taskId
               })
             ))
-            Alert.alert("Tarefa excluída", "A tarefa foi deletada.")
+            Alert.alert("Tarefa excluída", `A tarefa "${selectedTask.text}" foi deletada.`)
           },
         },
       ]
     )
   }
 
-  function completeTask(taskId: number) {
+  function handleCompleteTask(taskId: number) {
     setTasks((state) => (
       state.map((item, index) => {
         if (index === taskId) {
@@ -81,11 +70,6 @@ export function Home() {
       })
     ))
   }
-
-  const tasksCreated = tasks.length
-  const tasksCompleted = tasks.filter((item) => {
-    return item.isCompleted === true
-  }).length
 
   return (
     <View style={styles.container}>
@@ -110,7 +94,7 @@ export function Home() {
         <TouchableOpacity 
           style={styles.formButton} 
           activeOpacity={0.7}
-          onPress={() => addTask(textInput)}
+          onPress={() => handleAddTask(textInput)}
         >
           <Icon
             name="plus-circle"
@@ -120,82 +104,11 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.tasksParent}>
-        <View style={styles.tasksContainer}>
-          <FlatList
-            data={tasks}
-            ListHeaderComponent={() => (
-              <View style={styles.infoContainer}>
-                <View style={styles.infoBox}>
-                  <Text style={[styles.infoText, { color: "#4EA8DE" }]}>
-                    Criadas
-                  </Text>
-                  <Text style={styles.infoNumber}>{tasksCreated}</Text>
-                </View>
-                <View style={styles.infoBox}>
-                  <Text style={[styles.infoText, { color: "#8284FA" }]}>
-                    Concluídas
-                  </Text>
-                  <Text style={styles.infoNumber}>{tasksCompleted}</Text>
-                </View>
-              </View>
-            )}
-            renderItem={({ item, index }) => {
-              return (
-                <View
-                  key={index}
-                  style={styles.taskItem}
-                >
-                  <TouchableOpacity
-                    onPress={() => completeTask(index)}
-                  >
-                    {item.isCompleted ? (
-                      <Icon
-                        name="check-circle"
-                        size={20}
-                        color="#4EA8DE"
-                      />
-                    ) : (
-                      <Icon
-                        name="circle"
-                        size={20}
-                        color="#4EA8DE"
-                      />
-                    )}
-                  </TouchableOpacity>
-                  <Text style={styles.taskText}>{item.text}</Text>
-                  <TouchableOpacity
-                    onPress={() => removeTask(index)}
-                  >
-                    <Icon
-                      name="trash-2"
-                      size={18}
-                      color="#808080"
-                    />
-                  </TouchableOpacity>
-                </View>
-              )
-            }}
-            ListEmptyComponent={() => (
-              <View style={styles.emptyTasksContainer}>
-                <Icon
-                  name="clipboard"
-                  size={64}
-                  color="#3D3D3D"
-                />
-                <View>
-                  <Text style={[styles.emptyTasksListText, { fontWeight: "bold" }]}>
-                    Você ainda não tem tarefas cadastradas
-                  </Text>
-                  <Text style={styles.emptyTasksListText}>
-                    Crie tarefas e organize seus itens a fazer
-                  </Text>
-                </View>
-              </View>
-            )}
-          />
-        </View>
-      </View>
+      <TaskList
+        tasks={tasks}
+        onRemoveTask={handleRemoveTask}
+        onCompleteTask={handleCompleteTask}
+      />
     </View>
   )
 }
