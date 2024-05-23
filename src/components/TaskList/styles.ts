@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
     borderRadius: 9999,
   },
   tasksContainer: {
+    flex: 1,
     marginTop: 20,
   },
   emptyTasksContainer: {
@@ -59,7 +60,6 @@ export const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: "#262626",
     padding: 12,
-    paddingRight: 8,
     marginBottom: 8,
     borderWidth: 1,
     borderColor: "#333333",

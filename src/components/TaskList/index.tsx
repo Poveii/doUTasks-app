@@ -24,24 +24,23 @@ export function TaskList({
   return (
     <View style={styles.tasksParent}>
       <View style={styles.tasksContainer}>
+        <View style={styles.infoContainer}>
+          <View style={styles.infoBox}>
+            <Text style={[styles.infoText, { color: "#4EA8DE" }]}>
+              Criadas
+            </Text>
+            <Text style={styles.infoNumber}>{tasksCreated}</Text>
+          </View>
+          <View style={styles.infoBox}>
+            <Text style={[styles.infoText, { color: "#8284FA" }]}>
+              Concluídas
+            </Text>
+            <Text style={styles.infoNumber}>{tasksCompleted}</Text>
+          </View>
+        </View>
         <FlatList
           data={tasks}
-          ListHeaderComponent={() => (
-            <View style={styles.infoContainer}>
-              <View style={styles.infoBox}>
-                <Text style={[styles.infoText, { color: "#4EA8DE" }]}>
-                  Criadas
-                </Text>
-                <Text style={styles.infoNumber}>{tasksCreated}</Text>
-              </View>
-              <View style={styles.infoBox}>
-                <Text style={[styles.infoText, { color: "#8284FA" }]}>
-                  Concluídas
-                </Text>
-                <Text style={styles.infoNumber}>{tasksCompleted}</Text>
-              </View>
-            </View>
-          )}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item, index }) => {
             return (
               <View
