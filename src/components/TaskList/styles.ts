@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   tasksParent: {
     flex: 1,
     width: "100%",
-    backgroundColor: "#1A1A1A",
+    backgroundColor: "#1F1D20",
     marginTop: -32,
     paddingHorizontal: 24,
     zIndex: -1,
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 2,
     fontWeight: "bold",
     fontSize: 12,
-    backgroundColor: "#333333",
+    backgroundColor: "#38332E",
     color: "#D9D9D9",
     borderRadius: 9999,
   },
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
   emptyTasksListText: {
     fontSize: 14,
     lineHeight: 20,
-    color: "#808080",
+    color: "#787068",
   },
   tasksList: {
     gap: 8,
@@ -58,21 +58,21 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
-    backgroundColor: "#262626",
+    backgroundColor: "#2C2926",
     padding: 12,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: "#333333",
+    borderColor: "#38332E",
     borderRadius: 8,
   },
   taskText: {
     flex: 1,
     fontSize: 14,
     lineHeight: 20,
-    color: "#F2F2F2",
+    color: "#F5F5F5",
   },
   completedTaskText: {
     textDecorationLine: "line-through",
-    color: "#808080",
+    color: "#787068",
   },
 })

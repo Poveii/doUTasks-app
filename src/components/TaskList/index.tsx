@@ -26,13 +26,13 @@ export function TaskList({
       <View style={styles.tasksContainer}>
         <View style={styles.infoContainer}>
           <View style={styles.infoBox}>
-            <Text style={[styles.infoText, { color: "#4EA8DE" }]}>
+            <Text style={[styles.infoText, { color: "#FDC221" }]}>
               Criadas
             </Text>
             <Text style={styles.infoNumber}>{tasksCreated}</Text>
           </View>
           <View style={styles.infoBox}>
-            <Text style={[styles.infoText, { color: "#8284FA" }]}>
+            <Text style={[styles.infoText, { color: "#E28B28" }]}>
               Concluídas
             </Text>
             <Text style={styles.infoNumber}>{tasksCompleted}</Text>
@@ -54,13 +54,13 @@ export function TaskList({
                     <Icon
                       name="check-circle"
                       size={20}
-                      color="#4EA8DE"
+                      color="#E28B28"
                     />
                   ) : (
                     <Icon
                       name="circle"
                       size={20}
-                      color="#4EA8DE"
+                      color="#FDC221"
                     />
                   )}
                 </TouchableOpacity>
@@ -76,7 +76,7 @@ export function TaskList({
                   <Icon
                     name="trash-2"
                     size={18}
-                    color="#808080"
+                    color="#787068"
                   />
                 </TouchableOpacity>
               </View>
@@ -87,7 +87,7 @@ export function TaskList({
               <Icon
                 name="clipboard"
                 size={64}
-                color="#3D3D3D"
+                color="#3C3834"
               />
               <View>
                 <Text style={[styles.emptyTasksListText, { fontWeight: "bold" }]}>

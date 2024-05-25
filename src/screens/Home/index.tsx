@@ -86,12 +86,12 @@ export function Home() {
             styles.formInput,
             {
               borderColor: focusInput ? 
-                "#5E60CE" : 
-                "#0D0D0D"
+                "#FDC221" : 
+                "#0B0A09"
             },
           ]}
           placeholder="Adicione uma nova tarefa"
-          placeholderTextColor="#808080"
+          placeholderTextColor="#787068"
           onFocus={() => setFocusInput(true)}
           onChangeText={(text) => setTextInput(text)}
           value={textInput}
@@ -104,7 +104,7 @@ export function Home() {
           <Icon
             name="plus-circle"
             size={18}
-            color="#FFFFFF"
+            color="#F5F5F5"
           />
         </TouchableOpacity>
       </View>

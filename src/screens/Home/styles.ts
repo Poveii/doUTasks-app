@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#0D0D0D",
+    backgroundColor: "#121113",
     paddingTop: 72,
   },
   formContainer: {
@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   formInput: {
-    backgroundColor: "#262626",
-    color: "#F2F2F2",
+    backgroundColor: "#2C2926",
+    color: "#F5F5F5",
     padding: 16,
     paddingRight: 0,
     fontSize: 16,
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     padding: 18,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#1E6F9F",
+    backgroundColor: "#FDC221",
     borderRadius: 6,
   },
 })
