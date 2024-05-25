@@ -25,6 +25,11 @@ export function Home() {
   const [textInput, setTextInput] = useState("")
 
   function handleAddTask(taskText: string) {
+    if (textInput.length <= 0) return Alert.alert(
+      "Você não digitou o nome da tarefa",
+      "Digite o nome da tarefa antes de adicionar."
+    )
+
     const task = {
       text: taskText,
       isCompleted: false,
@@ -36,7 +41,7 @@ export function Home() {
   }
 
   function handleRemoveTask(taskId: number) {
-    const selectedTask = tasks.filter((_, index) => index !== taskId)[0]
+    const selectedTask = tasks.filter((_, index) => index === taskId)[0]
 
     Alert.alert(
       "Excluir tarefa",
@@ -98,7 +103,7 @@ export function Home() {
         >
           <Icon
             name="plus-circle"
-            size={16}
+            size={18}
             color="#FFFFFF"
           />
         </TouchableOpacity>
